@@ -1,0 +1,597 @@
+
+nano internsctl.sh
+
+
+#!/bin/bash
+
+# Define the version number
+VERSION="v0.1.0"
+
+# Help function to display usage instructions
+function display_help {
+    echo "Usage: internsctl [options]"
+    echo "Options:"
+    echo "  version   Show internsctl version"
+    echo "  help      Show this help message"
+}
+
+# Main function to handle command logic
+function main {
+    case $1 in
+        "version")
+            echo "internsctl version $VERSION"
+            ;;
+        "help")
+            display_help
+            ;;
+        *)
+            echo "Error: Invalid command. Use 'internsctl help' for usage instructions."
+            ;;
+    esac
+}
+
+# Call the main function with command line arguments
+main "$@"
+
+
+chmod +x internsctl.sh                            
+
+sudo mv internsctl.sh /usr/local/bin/internsctl  
+
+
+internsctl version
+internsctl help
+
+
+
+internsctl cpu getinf
+
+bash
+Copy code
+#!/bin/bash
+
+# Define the version number
+VERSION="v0.1.0"
+
+# Function to get CPU information
+function get_cpu_info {
+    cpu_info=$(lscpu)
+    echo "CPU Information:"
+    echo "$cpu_info"
+}
+
+# Help function to display usage instructions
+function display_help {
+    echo "Usage: internsctl [options]"
+    echo "Options:"
+    echo "  version   Show internsctl version"
+    echo "  cpu getinf   Get CPU information"
+    echo "  help      Show this help message"
+}
+
+# Main function to handle command logic
+function main {
+    case $1 in
+        "version")
+            echo "internsctl version $VERSION"
+            ;;
+        "cpu")
+            case $2 in
+                "getinf")
+                    get_cpu_info
+                    ;;
+                *)
+                    echo "Error: Invalid CPU command. Use 'internsctl cpu getinf' to get CPU information."
+                    ;;
+            esac
+            ;;
+        "help")
+            display_help
+            ;;
+        *)
+            echo "Error: Invalid command. Use 'internsctl help' for usage instructions."
+            ;;
+    esac
+}
+
+
+chmod +x internsctl.sh                            
+
+sudo mv internsctl.sh /usr/local/bin/internsctl  
+
+internsctl cpu getinf
+
+
+
+bash
+Copy code
+#!/bin/bash
+
+# Define the version number
+VERSION="v0.1.0"
+
+# Function to get formatted CPU information
+function get_cpu_info {
+    cpu_info=$(lscpu)
+    echo "CPU Information:"
+    echo "$cpu_info"
+}
+
+# Help function to display usage instructions
+function display_help {
+    echo "Usage: internsctl [options]"
+    echo "Options:"
+    echo "  version   Show internsctl version"
+    echo "  cpu getinf   Get CPU information"
+    echo "  help      Show this help message"
+}
+
+# Main function to handle command logic
+function main {
+    case $1 in
+        "version")
+            echo "internsctl version $VERSION"
+            ;;
+        "cpu")
+            case $2 in
+                "getinf")
+                    get_cpu_info
+                    ;;
+                *)
+                    echo "Error: Invalid CPU command. Use 'internsctl cpu getinf' to get CPU information."
+                    ;;
+            esac
+            ;;
+        "help")
+            display_help
+            ;;
+        *)
+            echo "Error: Invalid command. Use 'internsctl help' for usage instructions."
+            ;;
+    esac
+}
+
+
+
+internsctl cpu getinf
+
+
+
+$ internsctl memory getinfo
+
+bash
+Copy code
+#!/bin/bash
+
+# Define the version number
+VERSION="v0.1.0"
+
+# Function to get formatted memory information
+function get_memory_info {
+    memory_info=$(free -h)
+    echo "Memory Information:"
+    echo "$memory_info"
+}
+
+# Help function to display usage instructions
+function display_help {
+    echo "Usage: internsctl [options]"
+    echo "Options:"
+    echo "  version      Show internsctl version"
+    echo "  memory getinfo   Get memory information"
+    echo "  help         Show this help message"
+}
+
+# Main function to handle command logic
+function main {
+    case $1 in
+        "version")
+            echo "internsctl version $VERSION"
+            ;;
+        "memory")
+            case $2 in
+                "getinfo")
+                    get_memory_info
+                    ;;
+                *)
+                    echo "Error: Invalid memory command. Use 'internsctl memory getinfo' to get memory information."
+                    ;;
+            esac
+            ;;
+        "help")
+            display_help
+            ;;
+        *)
+            echo "Error: Invalid command. Use 'internsctl help' for usage instructions."
+            ;;
+    esac
+}
+
+
+internsctl memory getinfo
+
+
+#!/bin/bash
+
+# Define the version number
+VERSION="v0.1.0"
+
+# Function to get formatted memory information
+function get_memory_info {
+    memory_info=$(free -h)
+    echo "Memory Information:"
+    echo "$memory_info"
+}
+
+# Help function to display usage instructions
+function display_help {
+    echo "Usage: internsctl [options]"
+    echo "Options:"
+    echo "  version         Show internsctl version"
+    echo "  memory getinfo  Get memory information"
+    echo "  help            Show this help message"
+}
+
+# Main function to handle command logic
+function main {
+    case $1 in
+        "version")
+            echo "internsctl version $VERSION"
+            ;;
+        "memory")
+            case $2 in
+                "getinfo")
+                    get_memory_info
+                    ;;
+                *)
+                    echo "Error: Invalid memory command. Use 'internsctl memory getinfo' to get memory information."
+                    ;;
+            esac
+            ;;
+        "help")
+            display_help
+            ;;
+        *)
+            echo "Error: Invalid command. Use 'internsctl help' for usage instructions."
+            ;;
+    esac
+}
+
+
+internsctl memory getinfo
+
+
+
+$ internsctl user create aryaman
+
+#!/bin/bash
+
+# Define the version number
+VERSION="v0.1.0"
+
+# Function to create a new user
+function create_user {
+    if [ -z "$1" ]; then
+        echo "Error: Missing username. Usage: internsctl user create <username>"
+        return 1
+    fi
+    
+    username=$1
+    useradd -m -s /bin/bash $username
+    echo "User $username created successfully."
+}
+
+# Help function to display usage instructions
+function display_help {
+    echo "Usage: internsctl [options]"
+    echo "Options:"
+    echo "  version          Show internsctl version"
+    echo "  user create <username>  Create a new user with the specified username"
+    echo "  help             Show this help message"
+}
+
+# Main function to handle command logic
+function main {
+    case $1 in
+        "version")
+            echo "internsctl version $VERSION"
+            ;;
+        "user")
+            case $2 in
+                "create")
+                    create_user $3
+                    ;;
+                *)
+                    echo "Error: Invalid user command. Use 'internsctl user create <username>' to create a new user."
+                    ;;
+            esac
+            ;;
+        "help")
+            display_help
+            ;;
+        *)
+            echo "Error: Invalid command. Use 'internsctl help' for usage instructions."
+            ;;
+    esac
+}
+
+
+internsctl user create aryaman
+
+internsctl user lis
+
+#!/bin/bash
+
+# Define the version number
+VERSION="v0.1.0"
+
+# Function to list all regular users
+function list_users {
+    echo "Regular Users:"
+    getent passwd | grep -E '/home/[^*:]' | cut -d: -f1
+}
+
+# Help function to display usage instructions
+function display_help {
+    echo "Usage: internsctl [options]"
+    echo "Options:"
+    echo "  version           Show internsctl version"
+    echo "  user create <username>    Create a new user with the specified username"
+    echo "  user list              List all regular users"
+    echo "  help              Show this help message"
+}
+
+# Main function to handle command logic
+function main {
+    case $1 in
+        "version")
+            echo "internsctl version $VERSION"
+            ;;
+        "user")
+            case $2 in
+                "create")
+                    create_user $3
+                    ;;
+                "list")
+                    list_users
+                    ;;
+                *)
+                    echo "Error: Invalid user command. Use 'internsctl user create <username>' to create a new user or 'internsctl user list' to list all regular users."
+                    ;;
+            esac
+            ;;
+        "help")
+            display_help
+            ;;
+        *)
+            echo "Error: Invalid command. Use 'internsctl help' for usage instructions."
+            ;;
+    esac
+}
+
+# Call the main function with command line arguments
+main "$@"
+
+internsctl user list
+
+
+$ internsctl user list --sudo-only
+
+#!/bin/bash
+
+# Define the version number
+VERSION="v0.1.0"
+
+# Function to list all users with sudo permissions
+function list_sudo_users {
+    echo "Users with sudo permissions:"
+    grep -Po '^sudo.+:\K.*$' /etc/group | tr ',' '\n'
+}
+
+# Function to list all regular users
+function list_users {
+    echo "Regular Users:"
+    getent passwd | grep -E '/home/[^*:]' | cut -d: -f1
+}
+
+# Help function to display usage instructions
+function display_help {
+    echo "Usage: internsctl [options]"
+    echo "Options:"
+    echo "  version           Show internsctl version"
+    echo "  user create <username>    Create a new user with the specified username"
+    echo "  user list              List all regular users"
+    echo "  user list --sudo-only  List all users with sudo permissions"
+    echo "  help              Show this help message"
+}
+
+# Main function to handle command logic
+function main {
+    case $1 in
+        "version")
+            echo "internsctl version $VERSION"
+            ;;
+        "user")
+            case $2 in
+                "create")
+                    create_user $3
+                    ;;
+                "list")
+                    if [ "$3" == "--sudo-only" ]; then
+                        list_sudo_users
+                    else
+                        list_users
+                    fi
+                    ;;
+                *)
+                    echo "Error: Invalid user command. Use 'internsctl user create <username>' to create a new user, 'internsctl user list' to list all regular users, or 'internsctl user list --sudo-only' to list users with sudo permissions."
+                    ;;
+            esac
+            ;;
+        "help")
+            display_help
+            ;;
+        *)
+            echo "Error: Invalid command. Use 'internsctl help' for usage instructions."
+            ;;
+    esac
+}
+
+# Call the main function with command line arguments
+main "$@"
+
+internsctl user list --sudo-only
+
+
+$ internsctl file getinfo <file-name>
+
+#!/bin/bash
+
+# Define the version number
+VERSION="v0.1.0"
+
+# Function to get information about a file
+function get_file_info {
+    if [ -z "$1" ]; then
+        echo "Error: Missing file name. Usage: internsctl file getinfo <file-name>"
+        return 1
+    fi
+    
+    file_name=$1
+    if [ -e "$file_name" ]; then
+        file_info=$(stat "$file_name")
+        echo "File Information for $file_name:"
+        echo "$file_info"
+    else
+        echo "Error: File '$file_name' not found."
+    fi
+}
+
+# Help function to display usage instructions
+function display_help {
+    echo "Usage: internsctl [options]"
+    echo "Options:"
+    echo "  version                    Show internsctl version"
+    echo "  file getinfo <file-name>   Get information about a specific file"
+    echo "  help                       Show this help message"
+}
+
+# Main function to handle command logic
+function main {
+    case $1 in
+        "version")
+            echo "internsctl version $VERSION"
+            ;;
+        "file")
+            case $2 in
+                "getinfo")
+                    get_file_info $3
+                    ;;
+                *)
+                    echo "Error: Invalid file command. Use 'internsctl file getinfo <file-name>' to get information about a specific file."
+                    ;;
+            esac
+            ;;
+        "help")
+            display_help
+            ;;
+        *)
+            echo "Error: Invalid command. Use 'internsctl help' for usage instructions."
+            ;;
+    esac
+}
+
+# Call the main function with command line arguments
+main "$@"
+
+internsctl file getinfo /etc/passwd
+
+
+#!/bin/bash
+
+# Define the version number
+VERSION="v0.1.0"
+
+# Function to get specific information about a file based on options
+function get_file_info {
+    local file_name="$1"
+    local options=("$@")
+
+    if [ -z "$file_name" ]; then
+        echo "Error: Missing file name. Usage: internsctl file getinfo [options] <file-name>"
+        return 1
+    fi
+
+    if [ -e "$file_name" ]; then
+        local file_info
+
+        # Check options and retrieve specific file information
+        for option in "${options[@]}"; do
+            case "$option" in
+                "-s" | "--size")
+                    file_info+="Size of $file_name: $(stat -c%s "$file_name") bytes"$'\n'
+                    ;;
+                "-p" | "--permissions")
+                    file_info+="Permissions of $file_name: $(stat -c%a "$file_name")"$'\n'
+                    ;;
+                "-o" | "--owner")
+                    file_info+="Owner of $file_name: $(stat -c%U "$file_name")"$'\n'
+                    ;;
+                *)
+                    echo "Error: Invalid option '$option'. Supported options: -s/--size, -p/--permissions, -o/--owner"
+                    return 1
+                    ;;
+            esac
+        done
+
+        echo "$file_info"
+    else
+        echo "Error: File '$file_name' not found."
+    fi
+}
+
+# Help function to display usage instructions
+function display_help {
+    echo "Usage: internsctl [options]"
+    echo "Options:"
+    echo "  version                    Show internsctl version"
+    echo "  file getinfo [options] <file-name>   Get specific information about a file"
+    echo "Options for file getinfo:"
+    echo "  -s, --size                 Show file size"
+    echo "  -p, --permissions          Show file permissions"
+    echo "  -o, --owner                Show file owner"
+    echo "  help                       Show this help message"
+}
+
+# Main function to handle command logic
+function main {
+    case $1 in
+        "version")
+            echo "internsctl version $VERSION"
+            ;;
+        "file")
+            case $2 in
+                "getinfo")
+                    shift # Remove 'getinfo' from the arguments
+                    get_file_info "$@"
+                    ;;
+                *)
+                    echo "Error: Invalid file command. Use 'internsctl file getinfo [options] <file-name>' to get specific information about a file."
+                    ;;
+            esac
+            ;;
+        "help")
+            display_help
+            ;;
+        *)
+            echo "Error: Invalid command. Use 'internsctl help' for usage instructions."
+            ;;
+    esac
+}
+
+# Call the main function with command line arguments
+main "$@"
+
+internsctl file getinfo -s /etc/passwd
+internsctl file getinfo -p /etc/passwd
+internsctl file getinfo -o /etc/passwd
