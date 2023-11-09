@@ -1,6 +1,6 @@
 # SuperCarWebsite
 Responsive Car Showcase Website along with e-Commerce eligibility with Html5, CSS3, JavaScript <br><br>
-We have a Login/Signup page in our project where we have the basic credentials of the personal information then if ther are already registered then they have to login. When the user crosses that form it will disappear and reloads after 5 seconds assuring user have to fill his/her details.<br><br>
+We have a Login/Signup page in our project where we have the basic credentials of the personal information then if ther are already registered then they have to login. When the user crosses that form it will disappear and reloads after 5 seconds assuring user have to fill his/her details. later on it matches the value from the database and according to it authenticate the user..<br><br>
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger) &emsp;
    
 
